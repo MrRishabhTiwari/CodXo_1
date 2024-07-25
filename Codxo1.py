@@ -9,17 +9,15 @@ class GuessingGame:
         self.window.configure(bg="#f0f0f0")
 
         self.difficulty = tk.StringVar()
-        self.difficulty.set("easy")  # default difficulty
+        self.difficulty.set("easy")  
         self.attempts = 0
         self.max_attempts = 0
         self.number_to_guess = 0
         self.range_min = 0
         self.range_max = 0
 
-        # Header
         tk.Label(self.window, text="Number Guessing Game", font=("Arial", 24), bg="#f0f0f0").pack(pady=20)
 
-        # Difficulty selection
         tk.Label(self.window, text="Select difficulty:", font=("Arial", 14), bg="#f0f0f0").pack()
         difficulty_frame = tk.Frame(self.window, bg="#f0f0f0")
         difficulty_frame.pack()
@@ -27,10 +25,8 @@ class GuessingGame:
         tk.Radiobutton(difficulty_frame, text="Medium", variable=self.difficulty, value="medium", font=("Arial", 12)).pack(side=tk.LEFT)
         tk.Radiobutton(difficulty_frame, text="Hard", variable=self.difficulty, value="hard", font=("Arial", 12)).pack(side=tk.LEFT)
 
-        # Set difficulty button
         tk.Button(self.window, text="Set difficulty", command=self.set_difficulty, font=("Arial", 12), bg="#4CAF50", fg="#fff").pack(pady=10)
 
-        # Range selection
         tk.Label(self.window, text="Set range (min and max):", font=("Arial", 14), bg="#f0f0f0").pack()
         range_frame = tk.Frame(self.window, bg="#f0f0f0")
         range_frame.pack()
@@ -40,16 +36,13 @@ class GuessingGame:
         self.range_max_entry = tk.Entry(range_frame, font=("Arial", 12), width=5)
         self.range_max_entry.pack(side=tk.LEFT)
 
-        # Set range button
         tk.Button(self.window, text="Set range", command=self.set_range, font=("Arial", 12), bg="#4CAF50", fg="#fff").pack(pady=10)
 
-        # Guessing area
         tk.Label(self.window, text="Guess a number:", font=("Arial", 14), bg="#f0f0f0").pack()
         self.guess_entry = tk.Entry(self.window, font=("Arial", 12), width=10)
         self.guess_entry.pack()
         tk.Button(self.window, text="Guess", command=self.check_guess, font=("Arial", 12), bg="#4CAF50", fg="#fff").pack(pady=10)
 
-        # Result label
         self.result_label = tk.Label(self.window, text="", font=("Arial", 14), bg="#f0f0f0")
         self.result_label.pack()
 
